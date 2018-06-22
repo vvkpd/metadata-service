@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: metadata-deployment
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     env: dev
+ template:
+   metadata:
+     labels:
+       env: dev
+   spec:
+     containers:
+     - name: metadata
+       image: metadata:1.0
+       ports:
+       - containerPort: 8080
