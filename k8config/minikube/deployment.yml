@@ -17,3 +17,9 @@ spec:
        image: metadata:1.0
        ports:
        - containerPort: 8080
+       env:
+       - name: NAME_FROM_CONFIG
+         valueFrom:
+           configMapKeyRef:
+            name: special-pod
+            key: name
